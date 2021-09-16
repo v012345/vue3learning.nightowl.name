@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="assets/styles/simditor.css" />
+  <script type="text/javascript" src="assets/scripts/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/scripts/mobilecheck.js"></script>
+  <script type="text/javascript" src="assets/scripts/module.js"></script>
+
+  <script type="text/javascript" src="assets/scripts/hotkeys.js"></script>
+  <script type="text/javascript" src="assets/scripts/uploader.js"></script>
+  <script type="text/javascript" src="assets/scripts/dompurify.js"></script>
+  <script type="text/javascript" src="assets/scripts/simditor.js"></script>
+  <!-- <script type="text/javascript" src="assets/scripts/page-demo.js"></script> -->
+</head>
+
+<body>
+
+
+  <form action="api" method="POST" accept-charset="UTF-8">
+    <textarea id="editor" data-autosave="editor" autofocus required></textarea>
+    <input type="submit" value="submit">
+  </form>
+
+
+
+
+  <script>
+    var editor = new Simditor({
+      textarea: $('#editor'),
+      //optional options
+      upload: {
+        url: "http://api.localhost/api/vue3learning/v2/topic/upload_images",
+        // params: {
+        //   // _token: '{{ csrf_token() }}'
+        // },
+        fileKey: 'upload_image',
+        connectionCount: 9,
+        leaveConfirm: '文件上传中，关闭此页面将取消上传。'
+      },
+      pasteImage: true,
+    });
+  </script>
+</body>
+
+</html>
